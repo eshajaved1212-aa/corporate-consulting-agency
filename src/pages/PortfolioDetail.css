@@ -1,0 +1,307 @@
+/* ────────────────────────────────────────────────
+   PortfolioDetail.css — Portfolio Detail Page
+   ──────────────────────────────────────────────── */
+
+.pfd-loading-page {
+  min-height: 100vh;
+  background: #071A2F;
+}
+.pfd-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  color: rgba(255,255,255,0.5);
+  font-size: 16px;
+}
+.pfd-not-found {
+  text-align: center;
+  padding: 100px 24px;
+}
+.pfd-not-found h2 {
+  color: #fff;
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+}
+.pfd-back-link {
+  color: #38BDF8;
+  text-decoration: none;
+  font-size: 15px;
+}
+.pfd-back-link:hover { text-decoration: underline; }
+
+/* ── Hero ── */
+.pfd-hero {
+  position: relative;
+  min-height: 55vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+.pfd-hero-bg {
+  position: absolute;
+  inset: 0;
+}
+.pfd-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.pfd-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(7,26,47,0.4) 0%, rgba(7,26,47,0.95) 100%);
+}
+.pfd-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 110px 24px 60px;
+  margin: 0 auto;
+  width: 100%;
+}
+.pfd-back {
+  display: inline-block;
+  color: rgba(255,255,255,0.5);
+  font-size: 14px;
+  margin-bottom: 12px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.pfd-back:hover { color: #38BDF8; }
+.pfd-category {
+  display: inline-block;
+  padding: 5px 14px;
+  border-radius: 100px;
+  background: rgba(56,189,248,0.15);
+  color: #38BDF8;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.pfd-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+.pfd-client {
+  font-size: 15px;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 4px;
+}
+.pfd-client strong { color: #fff; }
+.pfd-timeline {
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+}
+
+/* ── Section ── */
+.pfd-section {
+  padding: 80px 24px;
+  background: #071A2F;
+}
+.pfd-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+.pfd-section-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 100px;
+  background: rgba(56,189,248,0.1);
+  color: #38BDF8;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+/* ── Overview ── */
+.pfd-overview {
+  margin-bottom: 60px;
+}
+.pfd-overview h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 16px;
+}
+.pfd-overview p {
+  font-size: 15px;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.8;
+}
+
+/* ── Results ── */
+.pfd-results {
+  margin-bottom: 60px;
+}
+.pfd-results h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 20px;
+}
+.pfd-results-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+@media (max-width: 600px) {
+  .pfd-results-grid { grid-template-columns: 1fr; }
+}
+.pfd-result-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 10px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.85);
+  transition: all 0.3s;
+}
+.pfd-result-card:hover {
+  border-color: rgba(16,185,129,0.2);
+  background: rgba(16,185,129,0.04);
+}
+.pfd-result-icon {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(16,185,129,0.1);
+}
+
+/* ── Challenge / Solution ── */
+.pfd-challenge-solution {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 60px;
+}
+@media (max-width: 700px) {
+  .pfd-challenge-solution { grid-template-columns: 1fr; }
+}
+.pfd-cs-block h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 14px;
+}
+.pfd-cs-block p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.8;
+}
+
+/* ── Results Image ── */
+.pfd-results-img-wrap {
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 60px;
+}
+.pfd-results-img-wrap img {
+  width: 100%;
+  display: block;
+}
+
+/* ── Testimonial ── */
+.pfd-testimonial {
+  padding: 40px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 14px;
+  margin-bottom: 60px;
+  text-align: center;
+}
+.pfd-testimonial-icon {
+  margin-bottom: 16px;
+}
+.pfd-testimonial blockquote {
+  font-size: 1.15rem;
+  color: rgba(255,255,255,0.85);
+  font-style: italic;
+  line-height: 1.7;
+  margin-bottom: 16px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.pfd-testimonial cite {
+  font-size: 14px;
+  color: #38BDF8;
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* ── CTA ── */
+.pfd-cta {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.pfd-cta-btn {
+  display: inline-block;
+  padding: 14px 32px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #38BDF8, #0EA5E9);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s;
+  box-shadow: 0 4px 20px rgba(56,189,248,0.3);
+}
+.pfd-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(56,189,248,0.4);
+}
+.pfd-cta-secondary {
+  display: inline-block;
+  padding: 14px 32px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.7);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.pfd-cta-secondary:hover {
+  border-color: #38BDF8;
+  color: #38BDF8;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .pfd-section { padding: 60px 24px; }
+  .pfd-container { padding: 0 32px; }
+  .pfd-hero-content { padding: 100px 24px 52px; }
+  .pfd-testimonial { padding: 32px 24px; }
+  .pfd-testimonial blockquote { font-size: 1.1rem; }
+}
+
+@media (max-width: 768px) {
+  .pfd-section { padding: 50px 20px; }
+  .pfd-container { padding: 0 20px; }
+  .pfd-hero-content { padding: 90px 20px 44px; }
+  .pfd-testimonial { padding: 28px 20px; }
+  .pfd-cta { flex-direction: column; gap: 12px; }
+}
+
+@media (max-width: 480px) {
+  .pfd-hero-content { padding: 80px 16px 36px; }
+  .pfd-section { padding: 40px 16px; }
+  .pfd-container { padding: 0 16px; }
+  .pfd-testimonial blockquote { font-size: 1rem; }
+}

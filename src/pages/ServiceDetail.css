@@ -1,0 +1,282 @@
+/* ───────────────────────────────────────────────────────
+   ServiceDetail.css — Styles for Service Detail Page
+   ─────────────────────────────────────────────────────── */
+
+.service-detail-hero {
+  position: relative;
+  padding: 140px 24px 80px;
+  text-align: center;
+  background: linear-gradient(135deg, #0D1B2A 0%, #1B2E45 50%, #2D4F6B 100%);
+  overflow: hidden;
+}
+
+@media (max-width: 1024px) {
+  .service-detail-hero { padding: 120px 24px 70px; }
+}
+
+@media (max-width: 768px) {
+  .service-detail-hero { padding: 100px 20px 60px; }
+}
+
+.service-detail-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(600px 400px at 20% 30%, rgba(184,134,42,0.12), transparent 60%),
+              radial-gradient(500px 350px at 80% 70%, rgba(212,166,58,0.08), transparent 55%);
+  pointer-events: none;
+}
+
+.service-detail-hero > div {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.service-detail-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-bright) 100%);
+  box-shadow: 0 8px 32px rgba(184,134,42,0.3);
+  margin-bottom: 24px;
+}
+
+.service-detail-hero h1 {
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+.service-detail-hero p {
+  font-size: 18px;
+  color: rgba(255,255,255,0.75);
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ── Body ── */
+.service-detail-body {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 48px;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 64px 24px 96px;
+}
+
+@media (max-width: 1024px) {
+  .service-detail-body { padding: 50px 24px 70px; }
+}
+
+.service-detail-main h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-top: 40px;
+  margin-bottom: 16px;
+}
+
+.service-detail-main h2:first-child {
+  margin-top: 0;
+}
+
+.service-detail-main p {
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--text-mid);
+}
+
+.service-points {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.service-points li {
+  padding: 12px 16px;
+  background: var(--navy-mid);
+  border-radius: 8px;
+  font-size: 15px;
+  color: var(--text-dark);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-left: 3px solid var(--gold);
+}
+
+/* ── Inquiry Form ── */
+.service-inquiry-wrap {
+  margin-top: 48px;
+  background: var(--navy-mid);
+  border-radius: 16px;
+  padding: 32px;
+  border: 1px solid var(--border);
+}
+
+.service-inquiry-wrap h2 {
+  margin-top: 0;
+}
+
+.service-inquiry-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.si-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.si-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.si-field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-mid);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.si-field input,
+.si-field textarea {
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 15px;
+  background: var(--white);
+  color: var(--text-dark);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  font-family: inherit;
+}
+
+.si-field input:focus,
+.si-field textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px var(--border-gold);
+}
+
+.si-error {
+  color: #ef4444;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.service-inquiry-success {
+  text-align: center;
+  padding: 40px 24px;
+  font-size: 18px;
+  color: #059669;
+  font-weight: 600;
+}
+
+/* ── Sidebar ── */
+.service-detail-nav {
+  position: sticky;
+  top: 100px;
+  align-self: start;
+  background: var(--navy-mid);
+  border-radius: 12px;
+  padding: 24px;
+  border: 1px solid var(--border);
+}
+
+.service-detail-nav h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--text-dark);
+}
+
+.service-detail-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: var(--text-mid);
+  text-decoration: none;
+  font-size: 14px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.service-detail-nav-item:hover {
+  background: var(--navy-light);
+  color: var(--gold);
+}
+
+/* ── Not found / loading ── */
+.not-found {
+  text-align: center;
+  padding: 120px 24px;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.not-found h2 {
+  font-size: 28px;
+  color: var(--text-dark);
+}
+
+.not-found p {
+  color: var(--text-mid);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .service-detail-body {
+    grid-template-columns: 1fr;
+  }
+
+  .service-detail-nav {
+    position: static;
+    order: -1;
+  }
+
+  .service-points {
+    grid-template-columns: 1fr;
+  }
+
+  .si-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .not-found { padding: 80px 16px 50px; }
+  .service-detail-hero { padding: 90px 16px 50px; }
+  .service-detail-body { padding: 40px 16px 60px; }
+  .service-detail-nav { padding: 20px; }
+  .service-inquiry-wrap { padding: 24px; }
+  .service-detail-hero h1 { font-size: clamp(28px, 5.5vw, 42px); }
+  .service-detail-hero p { font-size: 16px; }
+}
+
+/* ── Service detail CTA link ── */
+.service-detail-cta {
+  display: inline-block;
+  margin-top: 1rem;
+}
+

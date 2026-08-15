@@ -1,0 +1,386 @@
+{
+  "info": {
+    "name": "ConsultPro API",
+    "description": "Complete REST API test collection for ConsultPro backend. Set the `baseUrl` and `adminToken` collection variables before running.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl",    "value": "http://localhost:5000/api" },
+    { "key": "adminToken", "value": "consultpro-admin-secret-2024" },
+    { "key": "inquiryId",  "value": "" }
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "item": [
+        {
+          "name": "GET /health",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/health"
+          },
+          "event": [{
+            "listen": "test",
+            "script": { "exec": [
+              "pm.test('Status 200', () => pm.response.to.have.status(200));",
+              "pm.test('DB connected', () => {",
+              "  const b = pm.response.json();",
+              "  pm.expect(b.status).to.eql('ok');",
+              "  pm.expect(b.db).to.eql('connected');",
+              "});"
+            ]}
+          }]
+        }
+      ]
+    },
+    {
+      "name": "Contact",
+      "item": [
+        {
+          "name": "POST /contact — success",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/contact",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"Test User\",\"email\":\"test@example.com\",\"company\":\"TestCo\",\"service\":\"Strategy Consulting\",\"message\":\"Hello, I need consulting help.\"}"
+            }
+          },
+          "event": [{
+            "listen": "test",
+            "script": { "exec": [
+              "pm.test('Status 201', () => pm.response.to.have.status(201));",
+              "pm.test('Returns id', () => {",
+              "  const b = pm.response.json();",
+              "  pm.expect(b.success).to.be.true;",
+              "  pm.expect(b.id).to.be.a('string');",
+              "});"
+            ]}
+          }]
+        },
+        {
+          "name": "POST /contact — missing fields",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/contact",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\"name\":\"No Email\"}" }
+          },
+          "event": [{
+            "listen": "test",
+            "script": { "exec": [
+              "pm.test('Status 400', () => pm.response.to.have.status(400));",
+              "pm.test('Error message returned', () => {",
+              "  pm.expect(pm.response.json().success).to.be.false;",
+              "});"
+            ]}
+          }]
+        }
+      ]
+    },
+    {
+      "name": "Newsletter",
+      "item": [
+        {
+          "name": "POST /newsletter — subscribe",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/newsletter",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\"email\":\"newsletter_test@example.com\"}" }
+          },
+          "event": [{
+            "listen": "test",
+            "script": { "exec": [
+              "pm.test('Status 2xx', () => pm.expect(pm.response.code).to.be.oneOf([200,201]));",
+              "pm.test('Success true', () => pm.expect(pm.response.json().success).to.be.true);"
+            ]}
+          }]
+        },
+        {
+          "name": "POST /newsletter — duplicate (re-subscribe)",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/newsletter",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\"email\":\"newsletter_test@example.com\"}" }
+          },
+          "event": [{
+            "listen": "test",
+            "script": { "exec": [
+              "pm.test('Status 200', () => pm.response.to.have.status(200));",
+              "pm.test('Already subscribed msg', () => {",
+              "  pm.expect(pm.response.json().message).to.include('subscribed');",
+              "});"
+            ]}
+          }]
+        },
+        {
+          "name": "DELETE /newsletter/unsubscribe",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/newsletter/unsubscribe",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\"email\":\"newsletter_test@example.com\"}" }
+          },
+          "event": [{
+            "listen": "test",
+            "script": { "exec": [
+              "pm.test('Status 200', () => pm.response.to.have.status(200));",
+              "pm.test('Unsubscribed', () => {",
+              "  pm.expect(pm.response.json().success).to.be.true;",
+              "});"
+            ]}
+          }]
+        },
+        {
+          "name": "POST /newsletter — invalid email",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/newsletter",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\"email\":\"notanemail\"}" }
+          },
+          "event": [{
+            "listen": "test",
+            "script": { "exec": [
+              "pm.test('Status 400', () => pm.response.to.have.status(400));"
+            ]}
+          }]
+        }
+      ]
+    },
+    {
+      "name": "Services",
+      "item": [
+        {
+          "name": "GET /services — all",
+          "request": { "method": "GET", "url": "{{baseUrl}}/services" },
+          "event": [{
+            "listen": "test",
+            "script": { "exec": [
+              "pm.test('Status 200', () => pm.response.to.have.status(200));",
+              "pm.test('Returns 6 services', () => {",
+              "  const b = pm.response.json();",
+              "  pm.expect(b.success).to.be.true;",
+              "  pm.expect(b.data).to.have.lengthOf(6);",
+              "});"
+            ]}
+          }]
+        },
+        {
+          "name": "GET /services/:id — valid",
+          "request": { "method": "GET", "url": "{{baseUrl}}/services/strategy-consulting" },
+          "event": [{
+            "listen": "test",
+            "script": { "exec": [
+              "pm.test('Status 200', () => pm.response.to.have.status(200));",
+              "pm.test('Correct service', () => {",
+              "  pm.expect(pm.response.json().data.id).to.eql('strategy-consulting');",
+              "});"
+            ]}
+          }]
+        },
+        {
+          "name": "GET /services/:id — not found",
+          "request": { "method": "GET", "url": "{{baseUrl}}/services/nonexistent-service" },
+          "event": [{
+            "listen": "test",
+            "script": { "exec": [
+              "pm.test('Status 404', () => pm.response.to.have.status(404));"
+            ]}
+          }]
+        },
+        {
+          "name": "POST /services/:id/inquire — success",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/services/strategy-consulting/inquire",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"Test Client\",\"email\":\"client@example.com\",\"phone\":\"+1 555 000 0000\",\"message\":\"I need strategy consulting for my startup.\"}"
+            }
+          },
+          "event": [{
+            "listen": "test",
+            "script": { "exec": [
+              "pm.test('Status 201', () => pm.response.to.have.status(201));",
+              "pm.test('Inquiry created', () => {",
+              "  const b = pm.response.json();",
+              "  pm.expect(b.success).to.be.true;",
+              "  pm.expect(b.id).to.be.a('string');",
+              "  pm.collectionVariables.set('inquiryId', b.id);",
+              "});"
+            ]}
+          }]
+        }
+      ]
+    },
+    {
+      "name": "Team",
+      "item": [
+        {
+          "name": "GET /team — all",
+          "request": { "method": "GET", "url": "{{baseUrl}}/team" },
+          "event": [{
+            "listen": "test",
+            "script": { "exec": [
+              "pm.test('Status 200', () => pm.response.to.have.status(200));",
+              "pm.test('Returns 4 members', () => {",
+              "  const b = pm.response.json();",
+              "  pm.expect(b.success).to.be.true;",
+              "  pm.expect(b.data.length).to.be.gte(1);",
+              "});"
+            ]}
+          }]
+        },
+        {
+          "name": "GET /team/:id — valid",
+          "request": { "method": "GET", "url": "{{baseUrl}}/team/1" },
+          "event": [{
+            "listen": "test",
+            "script": { "exec": [
+              "pm.test('Status 200', () => pm.response.to.have.status(200));",
+              "pm.test('Has name', () => pm.expect(pm.response.json().data.name).to.be.a('string'));"
+            ]}
+          }]
+        },
+        {
+          "name": "GET /team/:id — not found",
+          "request": { "method": "GET", "url": "{{baseUrl}}/team/9999" },
+          "event": [{
+            "listen": "test",
+            "script": { "exec": [
+              "pm.test('Status 404', () => pm.response.to.have.status(404));"
+            ]}
+          }]
+        }
+      ]
+    },
+    {
+      "name": "Admin",
+      "item": [
+        {
+          "name": "GET /admin/summary — authorized",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/admin/summary",
+            "header": [{ "key": "Authorization", "value": "Bearer {{adminToken}}" }]
+          },
+          "event": [{
+            "listen": "test",
+            "script": { "exec": [
+              "pm.test('Status 200', () => pm.response.to.have.status(200));",
+              "pm.test('Has counts', () => {",
+              "  const d = pm.response.json().data;",
+              "  pm.expect(d).to.have.all.keys('contacts','activeSubscribers','serviceInquiries');",
+              "});"
+            ]}
+          }]
+        },
+        {
+          "name": "GET /admin/summary — unauthorized",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/admin/summary",
+            "header": [{ "key": "Authorization", "value": "Bearer wrong-token" }]
+          },
+          "event": [{
+            "listen": "test",
+            "script": { "exec": [
+              "pm.test('Status 401', () => pm.response.to.have.status(401));"
+            ]}
+          }]
+        },
+        {
+          "name": "GET /admin/contacts",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/admin/contacts",
+            "header": [{ "key": "Authorization", "value": "Bearer {{adminToken}}" }]
+          },
+          "event": [{
+            "listen": "test",
+            "script": { "exec": [
+              "pm.test('Status 200', () => pm.response.to.have.status(200));",
+              "pm.test('Paginated response', () => {",
+              "  const b = pm.response.json();",
+              "  pm.expect(b).to.have.all.keys('success','total','page','limit','data');",
+              "});"
+            ]}
+          }]
+        },
+        {
+          "name": "GET /admin/newsletter",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/admin/newsletter",
+            "header": [{ "key": "Authorization", "value": "Bearer {{adminToken}}" }]
+          },
+          "event": [{
+            "listen": "test",
+            "script": { "exec": [
+              "pm.test('Status 200', () => pm.response.to.have.status(200));"
+            ]}
+          }]
+        },
+        {
+          "name": "GET /admin/inquiries",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/admin/inquiries",
+            "header": [{ "key": "Authorization", "value": "Bearer {{adminToken}}" }]
+          },
+          "event": [{
+            "listen": "test",
+            "script": { "exec": [
+              "pm.test('Status 200', () => pm.response.to.have.status(200));"
+            ]}
+          }]
+        },
+        {
+          "name": "PATCH /admin/inquiries/:id — update status",
+          "request": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/admin/inquiries/{{inquiryId}}",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{adminToken}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": { "mode": "raw", "raw": "{\"status\":\"in-review\"}" }
+          },
+          "event": [{
+            "listen": "test",
+            "script": { "exec": [
+              "pm.test('Status 200 or 404', () => {",
+              "  pm.expect(pm.response.code).to.be.oneOf([200, 404]);",
+              "});"
+            ]}
+          }]
+        },
+        {
+          "name": "PATCH /admin/inquiries/:id — invalid status",
+          "request": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/admin/inquiries/{{inquiryId}}",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{adminToken}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": { "mode": "raw", "raw": "{\"status\":\"invalid-status\"}" }
+          },
+          "event": [{
+            "listen": "test",
+            "script": { "exec": [
+              "pm.test('Status 400 or 404', () => {",
+              "  pm.expect(pm.response.code).to.be.oneOf([400, 404]);",
+              "});"
+            ]}
+          }]
+        }
+      ]
+    }
+  ]
+}

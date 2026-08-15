@@ -1,0 +1,91 @@
+﻿
+> consultpro-server@1.0.0 test
+> jest --forceExit --detectOpenHandles services.test.js --runInBand
+
+  console.log
+    Γ£à  Seeded default services into database
+
+      at log (routes/services.js:105:27)
+
+  console.log
+    Γ£à  Seeded default portfolio entries into database
+
+      at log (routes/portfolio.js:139:27)
+
+node.exe : FAIL tests/services.test.js (5.762 s)
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (FAIL tests/services.test.js (5.762 s):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  GET /api/services
+    ├ù should return all services (846 ms)
+  GET /api/services/:id
+    ΓêÜ should return a specific service (93 ms)
+    ΓêÜ should return 404 for unknown service (39 ms)
+  POST /api/services/:id/inquire
+    ΓêÜ should create a service inquiry (349 ms)
+    ├ù should return 400 with missing fields (99 ms)
+    ΓêÜ should return 404 for invalid service (95 ms)
+    ├ù should save inquiry to database (98 ms)
+
+  ΓùÅ GET /api/services ΓÇ║ should return all services
+
+    expect(received).toBeGreaterThan(expected)
+
+    Expected: > 0
+    Received:   0
+
+    [0m [90m 14 |[39m     expect(res[33m.[39mbody)[33m.[39mtoHaveProperty([32m'data'[39m)[33m;[39m
+     [90m 15 |[39m     
+expect([33mArray[39m[33m.[39misArray(res[33m.[39mbody[33m.[39mdata))[33m.[39mtoBe([36mtrue[39m)[33m;[39m
+    [31m[1m>[22m[39m[90m 16 |[39m     
+expect(res[33m.[39mbody[33m.[39mdata[33m.[39mlength)[33m.[39mtoBeGreaterThan([35m0[39m)[33m;[39m
+     [90m    |[39m                                  [31m[1m^[22m[39m
+     [90m 17 |[39m   })[33m;[39m
+     [90m 18 |[39m })[33m;[39m
+     [90m 19 |[39m[0m
+
+      at Object.toBeGreaterThan (tests/services.test.js:16:34)
+
+  ΓùÅ POST /api/services/:id/inquire ΓÇ║ should return 400 with missing fields
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 400
+    Received: 404
+
+    [0m [90m 49 |[39m       [33m.[39mpost([32m'/api/services/strategy-consulting/inquire'[39m)
+     [90m 50 |[39m       [33m.[39msend({ name[33m:[39m [32m'John'[39m })[33m;[39m
+    [31m[1m>[22m[39m[90m 51 |[39m     expect(res[33m.[39mstatus)[33m.[39mtoBe([35m400[39m)[33m;[39m
+     [90m    |[39m                        [31m[1m^[22m[39m
+     [90m 52 |[39m   })[33m;[39m
+     [90m 53 |[39m
+     [90m 54 |[39m   it([32m'should return 404 for invalid service'[39m[33m,[39m [36masync[39m () [33m=>[39m {[0m
+
+      at Object.toBe (tests/services.test.js:51:24)
+
+  ΓùÅ POST /api/services/:id/inquire ΓÇ║ should save inquiry to database
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 1
+    Received: 0
+
+    [0m [90m 64 |[39m       [33m.[39msend({ name[33m:[39m [32m'Test'[39m[33m,[39m email[33m:[39m 
+[32m'test@test.com'[39m[33m,[39m message[33m:[39m [32m'Hello'[39m })[33m;[39m
+     [90m 65 |[39m     [36mconst[39m count [33m=[39m [36mawait[39m [33mServiceInquiry[39m[33m.[39mcountDocuments()[33m;[39m
+    [31m[1m>[22m[39m[90m 66 |[39m     expect(count)[33m.[39mtoBe([35m1[39m)[33m;[39m
+     [90m    |[39m                   [31m[1m^[22m[39m
+     [90m 67 |[39m   })[33m;[39m
+     [90m 68 |[39m })[33m;[39m
+     [90m 69 |[39m[0m
+
+      at Object.toBe (tests/services.test.js:66:19)
+
+Test Suites: 1 failed, 1 total
+Tests:       3 failed, 4 passed, 7 total
+Snapshots:   0 total
+Time:        5.943 s, estimated 6 s
+Ran all test suites matching services.test.js.

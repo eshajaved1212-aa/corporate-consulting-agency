@@ -1,0 +1,28 @@
+# ─────────────────────────────────────────────
+# Docker ignore — for backend Dockerfile
+# ─────────────────────────────────────────────
+
+# Dependencies are installed in Docker
+node_modules/
+npm-debug.log*
+
+# Environment files (never copy secrets into image)
+.env
+.env.*
+!.env.example
+
+# Source control
+.git
+.gitignore
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Tests (not needed in production image)
+tests/
+__tests__/
+

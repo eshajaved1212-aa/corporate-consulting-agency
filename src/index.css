@@ -1,0 +1,153 @@
+* { box-sizing: border-box; }
+
+/* ═══════════════════════════════════════════════════
+   Global Responsive Breakpoints (shared reference)
+   ───────────────────────────────────────────────────
+   • 1200px — Desktop XL
+   • 1024px — Desktop / Tablet
+   • 900px   — Tablet
+   • 768px   — Tablet / Mobile
+   • 640px   — Mobile
+   • 480px   — Mobile SM
+   ═══════════════════════════════════════════════════ */
+
+:root {
+  /* ── Core Palette (Sky Blue / White / Navy) ── */
+  /* Colors match the logo.svg gradient: #0284C7 → #0EA5E9 → #38BDF8 → #7DD3FC */
+  --sky-dark:    #0284C7;   /* logo dark sky blue */
+  --sky:         #0EA5E9;   /* primary accent - sky blue */
+  --sky-bright:  #38BDF8;   /* hover / button accent */
+  --sky-light:   #7DD3FC;   /* logo light sky blue */
+  --navy:        #0C4A6E;   /* deep sky navy / primary dark */
+  --navy-mid:    #0F5B8A;   /* section surface */
+  --navy-light:  #1E7BB8;   /* card surface */
+  --blue:        #2563EB;   /* logo PRO text blue */
+  --sky-pale:    #E0F2FE;   /* light tint surface */
+  --cream:       #F0F9FF;   /* page background - ice blue */
+  --white:       #FFFFFF;
+
+  /* Text */
+  --text-dark:  #0F172A;
+  --text-mid:   #334155;
+  --text-muted: #64748B;
+  --text-inv:   #FFFFFF;
+
+  /* Borders & Shadows */
+  --border:      rgba(12,74,110,0.10);
+  --border-sky:  rgba(14,165,233,0.28);
+  --shadow:      0 8px 32px rgba(12,74,110,0.10);
+  --shadow-lg:   0 20px 56px rgba(12,74,110,0.16);
+  --shadow-sky:  0 10px 36px rgba(14,165,233,0.22);
+
+  /* Legacy aliases kept so existing CSS vars still resolve */
+  --brand-dark:   #0C4A6E;
+  --brand:        #0F5B8A;
+  --brand-soft:   #1E7BB8;
+  --accent:       #0EA5E9;
+  --accent-soft:  #38BDF8;
+  --bg-page:      #F0F9FF;
+  --bg-surface:   #FFFFFF;
+  --bg-soft:      #E0F2FE;
+  --bg-ink:       #0C4A6E;
+  --text-primary:  #0F172A;
+  --text-inverse:  #FFFFFF;
+  --border-soft:   rgba(12,74,110,0.08);
+
+  /* Sky Blue aliases (legacy components still use --gold) */
+  --gold:        #0EA5E9;
+  --gold-bright: #38BDF8;
+  --gold-pale:   #E0F2FE;
+  --shadow-gold: 0 10px 36px rgba(14,165,233,0.22);
+  --border-gold: rgba(14,165,233,0.28);
+
+  /* RGB variants for rgba() usage */
+  --navy-rgb:        12, 74, 110;
+  --sky-rgb:         14, 165, 233;
+  --sky-dark-rgb:    2, 132, 199;
+  --sky-bright-rgb:  56, 189, 248;
+  --sky-light-rgb:   125, 213, 252;
+  --blue-rgb:        37, 99, 235;
+  --text-dark-rgb:   15, 23, 42;
+
+  --container-width: min(1280px, calc(100% - 48px));
+  --radius-lg: 16px;
+
+  font: 16px/1.65 'Inter', 'Segoe UI', Roboto, sans-serif;
+  color-scheme: light;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0;
+  background: var(--sky-pale);
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+
+/* Subtle animated background image behind the whole site - sky/ocean view */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background-image: url('https://images.unsplash.com/photo-1504639725590-34d0984388bd?q=80&w=1920&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center 30%;
+  opacity: 0.07;
+  filter: brightness(1.1) contrast(0.95) saturate(1.1);
+  transform: translateZ(0) scale(1.02);
+  animation: bgShift 48s ease-in-out infinite;
+}
+
+/* soft animated gradient/shape overlay with sky blue tones */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(600px 400px at 10% 20%, rgba(14,165,233,0.06), transparent 12%),
+              radial-gradient(500px 350px at 90% 80%, rgba(56,189,248,0.05), transparent 14%);
+  mix-blend-mode: screen;
+  opacity: 1;
+  animation: bgFloat 18s ease-in-out infinite;
+}
+
+@keyframes bgShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes bgFloat {
+  0%   { transform: translateY(0) scale(1); opacity: 0.9; }
+  50%  { transform: translateY(-18px) scale(1.02); opacity: 1; }
+  100% { transform: translateY(0) scale(1); opacity: 0.9; }
+}
+
+h1, h2, h3, h4 { margin: 0; }
+p  { margin: 0; }
+a  { color: inherit; }
+button { font-family: inherit; }
+#root { min-height: 100vh; }
+
+/* ── Responsive horizontal padding helpers ── */
+.resp-pad {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+@media (max-width: 768px) {
+  .resp-pad { padding-left: 20px; padding-right: 20px; }
+}
+@media (max-width: 480px) {
+  .resp-pad { padding-left: 16px; padding-right: 16px; }
+}
+
+/* ── Prevent horizontal scroll on mobile ── */
+@media (max-width: 768px) {
+  .container,
+  .container-fluid { max-width: 100%; }
+}

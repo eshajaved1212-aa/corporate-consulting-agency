@@ -1,0 +1,27 @@
+.particles-root {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.particles-root canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  opacity: 0.45;
+  mix-blend-mode: screen;
+}
+
+@media (max-width: 768px) {
+  .particles-root canvas {
+    opacity: 0.35;
+  }
+}
+
+@media (max-width: 480px) {
+  .particles-root canvas {
+    opacity: 0.25;
+  }
+}

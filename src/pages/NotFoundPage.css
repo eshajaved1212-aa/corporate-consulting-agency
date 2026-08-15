@@ -1,0 +1,97 @@
+/* ───────────────────────────────────────────────────────
+   NotFoundPage.css — 404 Page Styles
+   ─────────────────────────────────────────────────────── */
+
+.nf-page {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 24px 80px;
+  background: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .nf-page { padding: 100px 20px 60px; }
+  .nf-code { font-size: 90px; }
+  .nf-title { font-size: 26px; }
+  .nf-desc { font-size: 15px; }
+  .nf-link { font-size: 14px; padding: 12px 18px; }
+}
+
+.nf-page::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(800px 500px at 50% 40%, rgba(184,134,42,0.06), transparent 70%);
+  pointer-events: none;
+}
+
+.nf-content {
+  text-align: center;
+  max-width: 520px;
+  position: relative;
+  z-index: 1;
+}
+
+.nf-code {
+  font-size: 120px;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--gold), var(--gold-bright));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  display: block;
+  margin-bottom: 8px;
+  letter-spacing: -0.04em;
+}
+
+.nf-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 16px;
+}
+
+.nf-desc {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-mid);
+  margin-bottom: 32px;
+}
+
+.nf-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 480px) {
+  .nf-page { padding: 80px 16px 50px; }
+  .nf-code { font-size: 70px; }
+  .nf-title { font-size: 22px; }
+  .nf-desc { font-size: 14px; }
+  .nf-link { font-size: 13px; padding: 11px 16px; }
+  .nf-actions { gap: 12px; }
+}
+
+.nf-link {
+  color: var(--text-mid);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 14px 20px;
+  border-radius: 6px;
+  transition: color 0.2s, background 0.2s;
+}
+
+.nf-link:hover {
+  color: var(--gold);
+  background: var(--navy-mid);
+}
+

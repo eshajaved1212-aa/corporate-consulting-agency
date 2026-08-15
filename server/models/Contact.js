@@ -1,0 +1,14 @@
+const mongoose = require('mongoose');
+
+const contactSchema = new mongoose.Schema(
+  {
+    name:    { type: String, required: true, trim: true },
+    email:   { type: String, required: true, trim: true, lowercase: true },
+    company: { type: String, trim: true, default: '' },
+    service: { type: String, trim: true, default: '' },
+    message: { type: String, required: true, trim: true },
+  },
+  { timestamps: true }   // adds createdAt + updatedAt automatically
+);
+
+module.exports = mongoose.model('Contact', contactSchema);

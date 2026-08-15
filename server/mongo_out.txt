@@ -1,0 +1,5 @@
+Starting in-memory MongoDB (this may download a binary on first run)...
+SUCCESS: In-memory MongoDB started!
+URI: mongodb://127.0.0.1:27017/consultpro
+DB : consultpro
+This process will keep running. Press Ctrl+C to stop.

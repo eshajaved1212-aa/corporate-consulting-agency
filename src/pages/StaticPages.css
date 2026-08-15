@@ -1,0 +1,229 @@
+/* ────────────────────────────────────────────────
+   StaticPages.css — Shared styles for FAQ, Privacy, Terms
+   ──────────────────────────────────────────────── */
+
+/* ── Hero (shared) ── */
+.sp-hero {
+  position: relative;
+  min-height: 38vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.sp-hero-bg {
+  position: absolute;
+  inset: 0;
+}
+.sp-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.sp-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(7,26,47,0.92) 0%, rgba(11,36,71,0.85) 100%);
+}
+.sp-hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 720px;
+  padding: 120px 24px 50px;
+}
+.sp-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255,255,255,0.6);
+  font-size: 14px;
+  text-decoration: none;
+  margin-bottom: 16px;
+  transition: color 0.3s;
+}
+.sp-back-link:hover { color: #3B82F6; }
+.sp-eyebrow {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #3B82F6;
+  margin-bottom: 16px;
+}
+.sp-hero-title {
+  font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+.sp-gold { color: #3B82F6; }
+.sp-hero-sub {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.7;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ── Content section ── */
+.sp-content-section {
+  background: #071A2F;
+  padding: 60px 0 80px;
+}
+.sp-content-container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 40px;
+}
+.sp-content-narrow {
+  max-width: 800px;
+}
+
+/* ── Legal content (Privacy / Terms) ── */
+.sp-legal-content {
+  color: rgba(255,255,255,0.85);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+.sp-legal-content h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 36px 0 12px;
+}
+.sp-legal-content p {
+  margin-bottom: 16px;
+}
+.sp-legal-content ul {
+  margin-bottom: 16px;
+  padding-left: 24px;
+}
+.sp-legal-content li {
+  margin-bottom: 8px;
+}
+.sp-legal-content a {
+  color: #3B82F6;
+  text-decoration: underline;
+}
+.sp-legal-content a:hover { color: #60a5fa; }
+.sp-legal-content strong { color: rgba(255,255,255,0.9); }
+
+/* ── FAQ ── */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.faq-item {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.3s;
+}
+.faq-item.open {
+  border-color: rgba(59,130,246,0.3);
+}
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 20px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.faq-question:hover { background: rgba(255,255,255,0.03); }
+.faq-arrow {
+  flex-shrink: 0;
+  color: rgba(255,255,255,0.4);
+  transition: transform 0.3s;
+}
+.faq-item.open .faq-arrow { transform: rotate(180deg); }
+.faq-answer {
+  overflow: hidden;
+}
+.faq-answer p {
+  padding: 0 20px 18px;
+  margin: 0;
+  color: rgba(255,255,255,0.7);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* ── CTA box ── */
+.sp-cta-box {
+  text-align: center;
+  margin-top: 48px;
+  padding: 40px 24px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 14px;
+}
+.sp-cta-box h2 {
+  font-size: 1.4rem;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.sp-cta-box p {
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 20px;
+}
+.sp-cta-btn {
+  display: inline-block;
+  padding: 12px 28px;
+  background: #3B82F6;
+  color: #fff;
+  border-radius: 100px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 0.3s;
+}
+.sp-cta-btn:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(59,130,246,0.3);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .sp-hero-content { padding: 110px 24px 48px; }
+  .sp-content-container { padding: 0 32px; }
+  .sp-content-section { padding: 50px 0 70px; }
+  .sp-legal-content { font-size: 0.95rem; }
+  .sp-legal-content h2 { font-size: 1.2rem; margin: 28px 0 12px; }
+  .sp-cta-box { padding: 32px 20px; }
+  .sp-cta-box h2 { font-size: 1.3rem; }
+}
+
+@media (max-width: 768px) {
+  .sp-hero { min-height: 30vh; padding-top: env(safe-area-inset-top, 0px); }
+  .sp-hero-content { padding: 100px 20px 44px; }
+  .sp-content-container { padding: 0 20px; }
+  .sp-content-section { padding: 40px 0 60px; }
+  .sp-legal-content h2 { font-size: 1.1rem; margin: 24px 0 10px; }
+  .faq-question { font-size: 14px; padding: 14px 16px; }
+  .faq-answer p { padding: 0 16px 14px; }
+  .sp-cta-box { padding: 28px 20px; margin-top: 32px; }
+}
+
+@media (max-width: 480px) {
+  .sp-hero-content { padding: 90px 16px 36px; }
+  .sp-hero-title { font-size: 1.6rem; }
+  .sp-hero-sub { font-size: 0.95rem; }
+  .sp-legal-content { font-size: 0.9rem; line-height: 1.7; }
+  .sp-legal-content h2 { font-size: 1rem; }
+  .sp-cta-box { padding: 24px 16px; }
+  .sp-cta-btn { padding: 11px 24px; font-size: 14px; }
+}

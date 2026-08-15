@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 70" fill="none">
+  <defs>
+    <linearGradient id="bar1" x1="0" y1="70" x2="0" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0284C7"/>
+      <stop offset="100%" stop-color="#38BDF8"/>
+    </linearGradient>
+    <linearGradient id="bar2" x1="0" y1="70" x2="0" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0EA5E9"/>
+      <stop offset="100%" stop-color="#7DD3FC"/>
+    </linearGradient>
+    <linearGradient id="bar3" x1="0" y1="70" x2="0" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0284C7"/>
+      <stop offset="100%" stop-color="#38BDF8"/>
+    </linearGradient>
+    <linearGradient id="arrow" x1="0" y1="70" x2="70" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0EA5E9"/>
+      <stop offset="100%" stop-color="#38BDF8"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Bar 1 (left) -->
+  <rect x="4" y="32" width="16" height="34" rx="3" fill="url(#bar1)"/>
+  <!-- Bar 2 (middle) -->
+  <rect x="24" y="18" width="16" height="48" rx="3" fill="url(#bar2)"/>
+  <!-- Bar 3 (right) -->
+  <rect x="44" y="8" width="16" height="58" rx="3" fill="url(#bar3)"/>
+
+  <!-- Rising arrow crossing through bars -->
+  <path d="M-2 62 L32 20 L50 32 L72 4" stroke="url(#arrow)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Arrowhead -->
+  <path d="M66 2 L74 2 L72 10" stroke="url(#arrow)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+<!-- CONSULT brand text -->
+  <text x="78" y="38" font-family="'Inter', 'Segoe UI', Arial, sans-serif" font-size="22" font-weight="900" letter-spacing="2" fill="#0F172A">CONSULT</text>
+  <!-- PRO suffix -->
+  <text x="78" y="60" font-family="'Inter', 'Segoe UI', Arial, sans-serif" font-size="18" font-weight="800" letter-spacing="3" fill="#2563EB">PRO</text>
+</svg>

@@ -1,0 +1,27 @@
+﻿
+> consultency@0.0.0 build
+> vite build
+
+node.exe : [33mBoth esbuild and oxc options were set. oxc options will be used and esbuild options will be ignored.[39m The following 
+esbuild options were set: `{ jsx: 'automatic', jsxImportSource: 'react' }`
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([33mBoth esbui...rce: 'react' }`:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+[36mvite v8.1.5 [32mbuilding client environment for production...[36m[39m
+[2K
+transforming...Γ£ô 540 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   1.85 kB Γöé gzip:   0.75 kB
+dist/assets/index-CsqPVLBR.css   99.94 kB Γöé gzip:  17.08 kB
+dist/assets/index-WP3Om_Za.js   859.10 kB Γöé gzip: 242.94 kB
+
+[32mΓ£ô built in 1.46s[39m
+[33m[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
