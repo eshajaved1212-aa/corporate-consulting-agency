@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Icon from './Icons';
+import heroImage from '../assets/mm.jpg';
 import './Hero.css';
 
 /* ── Small trust / credibility stats ── */
@@ -125,7 +126,7 @@ export default function Hero() {
             <div className="hero-img-wrap">
               <img
                 className="hero-img"
-                src="/src/assets/mm.jpg"
+                src={heroImage}
                 alt="Professional business consulting team collaboration"
                 loading="lazy"
               />
