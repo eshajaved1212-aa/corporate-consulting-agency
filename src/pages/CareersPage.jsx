@@ -2,36 +2,37 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import Icon from '../components/Icons';
 import './CareersPage.css';
 
 const perks = [
   {
-    icon: '🚀',
+    icon: 'rocket',
     title: 'Growth Opportunities',
     desc: 'Structured career ladders, mentorship programs, and $5,000 annual learning budgets to help you reach your full potential.',
   },
   {
-    icon: '💼',
+    icon: 'target',
     title: 'Flexible Work',
     desc: 'Hybrid and remote-first working models, flexible hours, and a culture built around outcomes — not face time.',
   },
   {
-    icon: '🌍',
+    icon: 'globe',
     title: 'Global Impact',
     desc: 'Work with clients across 40+ industries and 20+ countries on engagements that reshape how businesses operate.',
   },
   {
-    icon: '🏆',
+    icon: 'award',
     title: 'Rewarding Compensation',
     desc: 'Competitive salary, performance bonuses, equity options, and comprehensive health & retirement benefits.',
   },
   {
-    icon: '🤝',
+    icon: 'users',
     title: 'World-Class Team',
     desc: 'Collaborate with former top-tier consultants, technologists, and operators who are the best at what they do.',
   },
   {
-    icon: '🧘',
+    icon: 'lightbulb',
     title: 'Wellbeing First',
     desc: 'Generous paid time off, parental leave, wellness stipends, and a supportive environment that values work-life balance.',
   },
@@ -171,7 +172,7 @@ export default function CareersPage() {
                 viewport={{ once: true, amount: 0.15 }}
                 transition={{ duration: 0.55, delay: i * 0.07 }}
               >
-                <div className="cp-perk-icon">{perk.icon}</div>
+                <div className="cp-perk-icon"><Icon name={perk.icon} size={28} /></div>
                 <h3>{perk.title}</h3>
                 <p>{perk.desc}</p>
               </motion.div>

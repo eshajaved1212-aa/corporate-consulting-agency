@@ -87,18 +87,18 @@ export default function TeamPage() {
                 <motion.div key={member.name} className="tp-card"
                   initial={{ opacity: 0, y: 48 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.2 }}
-                  transition={{ duration: 0.6, delay: i * 0.1 }}>
+                   viewport={{ once: true, amount: 0.2 }}
+                   transition={{ duration: 0.6, delay: i * 0.1 }}>
 
-                  {/* Photo */}
-                  <div className="tp-photo-wrap">
-                    <div className={`tp-photo ${member.name === 'Esha Javed' ? 'tp-photo--hands' : ''} ${member.name === 'Waseem Manzoor' ? 'tp-photo--waseem' : ''}`}>
-                      <img src={member.img} alt={member.name} />
-                    </div>
-                  </div>
+                   {/* Photo */}
+                   <div className="tp-photo-wrap">
+                     <div className={`tp-photo ${member.name === 'Esha Javed' ? 'tp-photo--esha' : ''} ${member.name === 'Waseem Manzoor' ? 'tp-photo--waseem' : ''}`}>
+                       <img src={member.img} alt={member.name} />
+                     </div>
+                   </div>
 
-                  {/* Info */}
-                  <div className="tp-info">
+                   {/* Info */}
+                   <div className="tp-info">
                     <h3>{member.name}</h3>
                     <span className="tp-role">{member.role}</span>
 

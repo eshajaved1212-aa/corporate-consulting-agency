@@ -6,7 +6,7 @@
 
 .hero-particles-wrapper {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 /* ── Section ── */
@@ -22,6 +22,7 @@
   background: linear-gradient(180deg, var(--white) 0%, var(--sky-pale) 50%, var(--sky-light) 100%);
   box-sizing: border-box;
   padding-top: 120px;
+  margin-bottom: 40px;
 }
 
 /* ── Background image ── */
@@ -91,7 +92,7 @@
   width: 100%;
   max-width: 1320px;
   margin: 0 auto;
-  padding: 40px 48px 80px;
+  padding: 40px 24px 60px;
   text-align: left;
 }
 
@@ -233,10 +234,12 @@
 
 .hero-btn-text { position: relative; z-index: 1; }
 
+/* Accent — Gold gradient matching hero-heading-accent */
 .hero-btn-arrow {
   position: relative;
   z-index: 1;
   transition: transform 0.35s ease;
+  color: #F59E0B;
 }
 
 .hero-btn:hover .hero-btn-arrow {
@@ -390,13 +393,13 @@
 
 .hero-float-card--0 {
   top: 12%;
-  right: -8%;
+  right: 0%;
   animation-delay: 0s;
 }
 
 .hero-float-card--1 {
   bottom: 18%;
-  left: -6%;
+  left: 0%;
   animation-delay: 1.5s;
 }
 

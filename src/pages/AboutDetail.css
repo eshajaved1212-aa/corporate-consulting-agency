@@ -44,7 +44,7 @@
   max-width: var(--container-width);
   width: 100%;
   margin: 0 auto;
-  padding: 160px 48px 72px;
+  padding: 160px 24px 72px;
   color: #fff;
 }
 
@@ -94,7 +94,7 @@
 .about-stats-bar-inner {
   max-width: var(--container-width);
   margin: 0 auto;
-  padding: 0 48px;
+  padding: 0 24px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 }
@@ -142,7 +142,7 @@
 .about-mv {
   max-width: var(--container-width);
   margin: 0 auto;
-  padding: 100px 48px;
+  padding: 100px 24px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
@@ -212,7 +212,7 @@
 .about-story-inner {
   max-width: var(--container-width);
   margin: 0 auto;
-  padding: 0 48px;
+  padding: 0 24px;
 }
 
 .about-story-header {
@@ -319,7 +319,7 @@
 .about-values {
   max-width: var(--container-width);
   margin: 0 auto;
-  padding: 100px 48px;
+  padding: 0 24px;
 }
 
 .about-values-header {
@@ -398,7 +398,7 @@
 .about-team-preview-inner {
   max-width: var(--container-width);
   margin: 0 auto;
-  padding: 0 48px;
+  padding: 0 24px;
 }
 
 .about-team-header {

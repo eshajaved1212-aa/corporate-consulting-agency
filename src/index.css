@@ -69,7 +69,7 @@
   --blue-rgb:        37, 99, 235;
   --text-dark-rgb:   15, 23, 42;
 
-  --container-width: min(1280px, calc(100% - 48px));
+  --container-width: min(1320px, calc(100% - 48px));
   --radius-lg: 16px;
 
   font: 16px/1.65 'Inter', 'Segoe UI', Roboto, sans-serif;
@@ -146,8 +146,45 @@ button { font-family: inherit; }
   .resp-pad { padding-left: 16px; padding-right: 16px; }
 }
 
-/* ── Prevent horizontal scroll on mobile ── */
-@media (max-width: 768px) {
-  .container,
-  .container-fluid { max-width: 100%; }
+  /* ── Prevent horizontal scroll on mobile ── */
+  @media (max-width: 768px) {
+    .container,
+    .container-fluid { max-width: 100%; }
+  }
+
+  /* ── Global container — consistent width across all sections ── */
+  /* Matches Navbar (1320px) and Hero (1320px) */
+  .container {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  @media (max-width: 768px) {
+    .container { padding-left: 20px; padding-right: 20px; }
+  }
+  @media (max-width: 480px) {
+    .container { padding-left: 16px; padding-right: 16px; }
+  }
+
+/* ── Global Arrow Icon Color (matches hero-heading-accent gold) ── */
+.hero-btn-arrow,
+.hero-btn svg,
+.srv-arrow,
+.sf-arrow,
+.bp-card-arrow,
+.np-card-arrow,
+.why-learn-more-btn svg,
+.footer-social-link svg,
+.ct-info-icon svg,
+.value-icon svg {
+  color: #F59E0B;
+  stroke: #F59E0B;
+}
+
+/* Exception: ghost button arrows should stay visible on white bg */
+.hero-btn-ghost .hero-btn-arrow,
+.hero-btn-ghost svg {
+  color: var(--blue);
+  stroke: var(--blue);
 }

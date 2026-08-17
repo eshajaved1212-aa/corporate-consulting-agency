@@ -169,11 +169,15 @@
 .tp-card:hover .tp-photo img { transform: scale(1.05); }
 
 .tp-photo--hands img {
-  object-position: center bottom;
+  object-position: center center;
 }
 
 .tp-photo--waseem img {
   object-position: center center;
+}
+
+.tp-photo--esha img {
+  object-position: center 5%;
 }
 
 /* Info */

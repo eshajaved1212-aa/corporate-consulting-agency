@@ -4,7 +4,7 @@
 .why-section {
   position: relative;
   background: var(--cream);
-  overflow: hidden;
+  overflow: visible;
   padding: 120px 0;
 }
 

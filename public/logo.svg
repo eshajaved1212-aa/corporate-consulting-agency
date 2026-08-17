@@ -13,8 +13,8 @@
       <stop offset="100%" stop-color="#38BDF8"/>
     </linearGradient>
     <linearGradient id="arrow" x1="0" y1="70" x2="70" y2="0" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#0EA5E9"/>
-      <stop offset="100%" stop-color="#38BDF8"/>
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#FBBF24"/>
     </linearGradient>
   </defs>
 

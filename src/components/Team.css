@@ -2,7 +2,7 @@
 .team-section {
   position: relative;
   background: #0F172A;
-  overflow: hidden;
+  overflow: visible;
   padding: 120px 0;
 }
 

@@ -94,11 +94,13 @@
 .pf-stat strong {
   font-size: 1.6rem;
   font-weight: 800;
-  color: #38BDF8;
+  color: #60A5FA;
 }
 .pf-stat span {
-  font-size: 13px;
-  color: rgba(255,255,255,0.5);
+  font-size: 14px;
+  font-weight: 800;
+  color: #60A5FA;
+  letter-spacing: 0.5px;
 }
 
 /* ── Section ── */

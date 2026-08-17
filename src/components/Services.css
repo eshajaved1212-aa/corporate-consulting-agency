@@ -1,7 +1,7 @@
 /* ── Services Section ── */
 .services-section {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   padding: 120px 0;
   background: var(--cream);
 }

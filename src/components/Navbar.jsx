@@ -38,12 +38,15 @@ export default function Navbar() {
         </Link>
 
         {/* ── Links — each opens its own page ── */}
-        <nav className={`nav-links ${menuOpen ? 'open' : ''}`}>
+        <nav className={`nav-links ${menuOpen ? 'open' : ''}`} aria-label="Main navigation">
+          <div className="nav-close-wrapper">
+            <button className="nav-close-btn" onClick={() => setMenuOpen(false)} aria-label="Close menu">✕</button>
+          </div>
           <Link to="/" className={location.pathname === '/' ? 'active' : ''} onClick={() => setMenuOpen(false)}>Home</Link>
           <Link to="/about" className={location.pathname === '/about' ? 'active' : ''} onClick={() => setMenuOpen(false)}>About</Link>
           <Link to="/why-choose-us" className={location.pathname === '/why-choose-us' ? 'active' : ''} onClick={() => setMenuOpen(false)}>Why Us</Link>
           <Link to="/services" className={location.pathname.startsWith('/services') ? 'active' : ''} onClick={() => setMenuOpen(false)}>Services</Link>
-<Link to="/team" className={location.pathname === '/team' ? 'active' : ''} onClick={() => setMenuOpen(false)}>Team</Link>
+          <Link to="/team" className={location.pathname === '/team' ? 'active' : ''} onClick={() => setMenuOpen(false)}>Team</Link>
           <Link to="/portfolio" className={location.pathname.startsWith('/portfolio') ? 'active' : ''} onClick={() => setMenuOpen(false)}>Portfolio</Link>
           <Link to="/blog" className={location.pathname.startsWith('/blog') ? 'active' : ''} onClick={() => setMenuOpen(false)}>Blog</Link>
           <Link to="/contact" className={`nav-contact-btn ${location.pathname === '/contact' ? 'active' : ''}`} onClick={() => setMenuOpen(false)}>
