@@ -63,6 +63,15 @@ export default function Hero() {
             </h1>
 
             <motion.p
+              className="hero-founder"
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.55, delay: 0.55 }}
+            >
+              <span className="hero-founder-label">Founded &amp; Led by</span> <span className="hero-founder-name">Esha Javed</span>
+            </motion.p>
+
+            <motion.p
               className="hero-sub"
               initial={{ opacity: 0, y: 22 }}
               animate={{ opacity: 1, y: 0 }}
@@ -116,7 +125,7 @@ export default function Hero() {
             <div className="hero-img-wrap">
               <img
                 className="hero-img"
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=85"
+                src="/src/assets/mm.jpg"
                 alt="Professional business consulting team collaboration"
                 loading="lazy"
               />
