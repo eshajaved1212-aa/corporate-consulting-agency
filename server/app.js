@@ -49,7 +49,8 @@ app.use(cors({
   origin: (origin, cb) => {
     const allowed = [
       process.env.FRONTEND_URL || 'http://localhost:5173',
-      'http://localhost:4173',
+      'http://localhost:5173',
+      'http://localhost:4173',  // preview
       'http://localhost:3000',
       'http://localhost:5174',
       // allow requests with no origin (mobile apps, Postman, curl)

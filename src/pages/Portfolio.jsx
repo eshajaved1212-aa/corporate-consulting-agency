@@ -50,7 +50,6 @@ export default function Portfolio() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
-          <Link to="/" className="pf-back">← Back to Home</Link>
           <span className="pf-eyebrow">Our Work</span>
           <h1 className="pf-hero-title">
             Our <span className="pf-accent">Portfolio</span>

@@ -33,7 +33,6 @@ export default function NewsPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
-          <Link to="/" className="np-back-link">← Back to Home</Link>
           <span className="np-eyebrow">Stay Informed</span>
           <h1 className="np-hero-title">
             News & <span className="np-gold">Insights</span>

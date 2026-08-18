@@ -70,6 +70,17 @@
   max-width: 300px;
 }
 
+.footer-founded {
+  font-size: 13px;
+  color: #94A3B8;
+  margin-bottom: 20px;
+}
+
+.footer-founded strong {
+  color: #ffffff;
+  font-weight: 700;
+}
+
 /* ── Social Icons ── */
 .footer-socials {
   display: flex;

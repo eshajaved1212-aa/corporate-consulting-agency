@@ -169,11 +169,28 @@
 
 /* ── Responsive ── */
 @media (max-width: 1024px) {
-  .why-inner { grid-template-columns: 1fr; gap: 50px; padding: 0 32px; }
+  .why-inner { grid-template-columns: 1fr; gap: 50px; padding: 0 24px; }
   .why-left  { position: static; }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .why-section { padding: 80px 0; }
-  .why-inner   { padding: 0 20px; }
+  .why-inner   { padding: 0 20px; gap: 40px; }
+  .why-pills   { gap: 10px; }
+  .why-pill    { min-width: 60px; padding: 10px 14px; }
+  .why-pill strong { font-size: 18px; }
+  .why-card    { padding: 18px; gap: 14px; }
+  .why-card-icon { width: 44px; height: 44px; }
+  .why-card-text h3 { font-size: 15px; }
+  .why-card-text p { font-size: 13px; }
+}
+
+@media (max-width: 480px) {
+  .why-section { padding: 70px 0; }
+  .why-inner   { padding: 0 16px; gap: 32px; }
+  .why-pill    { min-width: 50px; padding: 8px 10px; }
+  .why-pill strong { font-size: 16px; }
+  .why-pill span { font-size: 10px; }
+  .why-card    { padding: 14px; gap: 12px; }
+  .why-learn-more-btn { padding: 11px 20px; font-size: 12px; }
 }

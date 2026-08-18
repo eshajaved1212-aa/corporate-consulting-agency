@@ -2,6 +2,7 @@
    Hero — Premium Corporate Consulting
    Background: src/assets/hero-bg.png
    Clean White / Logo Sky Blue gradient
+   Fully responsive across all breakpoints
    ═══════════════════════════════════════════════════════════ */
 
 .hero-particles-wrapper {
@@ -387,6 +388,7 @@
   position: relative;
   z-index: 2;
   max-width: 560px;
+  width: 100%;
   border-radius: 26px;
   overflow: visible;
 }
@@ -452,7 +454,13 @@
   50% { transform: translateY(-10px); }
 }
 
-/* ── Responsive ── */
+/* ═══════════════════════════════════════════════════
+   RESPONSIVE BREAKPOINTS
+   ═══════════════════════════════════════════════════ */
+
+/* ── Large Desktop (1440px+) ── Keep current design ── */
+
+/* ── Desktop (1200px) ── */
 @media (max-width: 1200px) {
   .hero-inner { padding: 120px 36px 70px; }
   .hero-grid { gap: 48px; }
@@ -460,6 +468,7 @@
   .hero-float-card { font-size: 12px; padding: 10px 14px; }
 }
 
+/* ── Laptop (992px) ── */
 @media (max-width: 992px) {
   .hero-inner { padding: 110px 28px 60px; }
   .hero-grid { gap: 40px; }
@@ -469,9 +478,11 @@
   .hero-float-card { display: none; }
 }
 
+/* ── Tablet (768px) ── */
 @media (max-width: 768px) {
   .hero {
     min-height: calc(100vh - 70px);
+    padding-top: 100px;
   }
   .hero-inner { padding: 100px 24px 50px; }
   .hero-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -483,13 +494,53 @@
   .hero-stats { gap: 32px; justify-content: center; }
   .hero-stat strong { font-size: 24px; }
   .hero-sub { max-width: 100%; }
+  .hero-founder { flex-direction: column; align-items: flex-start; gap: 4px; }
 }
 
+/* ── Small Tablet / Mobile (576px) ── */
+@media (max-width: 576px) {
+  .hero {
+    min-height: calc(100vh - 60px);
+    padding-top: 80px;
+    margin-bottom: 24px;
+  }
+  .hero-inner { padding: 80px 20px 40px; }
+  .hero-grid { gap: 32px; }
+  .hero-heading { font-size: clamp(30px, 8vw, 42px); letter-spacing: -1px; }
+  .hero-img-wrap { max-width: 320px; }
+  .hero-actions { gap: 14px; }
+  .hero-btn { padding: 14px 28px; font-size: 14px; }
+  .hero-stats { gap: 24px; }
+  .hero-stat strong { font-size: 22px; }
+  .hero-badge { font-size: 11px; padding: 8px 16px; }
+}
+
+/* ── Mobile (480px) ── */
 @media (max-width: 480px) {
-  .hero-inner { padding: 90px 18px 40px; }
+  .hero-inner { padding: 80px 18px 40px; }
   .hero-actions { gap: 14px; }
   .hero-btn { padding: 15px 28px; font-size: 14px; }
   .hero-stats { gap: 24px; }
   .hero-stat strong { font-size: 22px; }
   .hero-img-wrap { max-width: 100%; }
+}
+
+/* ── Very Small Mobile (360px) ── */
+@media (max-width: 360px) {
+  .hero {
+    min-height: calc(100vh - 50px);
+    padding-top: 70px;
+    margin-bottom: 16px;
+  }
+  .hero-inner { padding: 70px 16px 32px; }
+  .hero-grid { gap: 24px; }
+  .hero-heading { font-size: clamp(26px, 9vw, 36px); letter-spacing: -0.5px; }
+  .hero-img-wrap { max-width: 100%; }
+  .hero-actions { gap: 12px; }
+  .hero-btn { padding: 13px 24px; font-size: 13px; }
+  .hero-stats { gap: 20px; }
+  .hero-stat strong { font-size: 20px; }
+  .hero-stat span { font-size: 11px; }
+  .hero-badge { font-size: 10px; padding: 6px 14px; }
+  .hero-bg-glow { display: none; }
 }

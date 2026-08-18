@@ -40,7 +40,6 @@ export default function ServicesPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
-          <Link to="/" className="sp-back">← Back to Home</Link>
           <span className="sp-eyebrow">What We Do</span>
           <h1 className="sp-hero-title">
             Our <span className="sp-gold">Services</span>

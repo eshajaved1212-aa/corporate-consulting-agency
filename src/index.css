@@ -79,11 +79,17 @@
   -webkit-font-smoothing: antialiased;
 }
 
+html {
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
   margin: 0;
   background: var(--sky-pale);
   color: var(--text-dark);
   overflow-x: hidden;
+  min-width: 320px;
 }
 
 /* Subtle animated background image behind the whole site - sky/ocean view */
@@ -134,6 +140,23 @@ a  { color: inherit; }
 button { font-family: inherit; }
 #root { min-height: 100vh; }
 
+/* ── Global container — consistent width across all sections ── */
+/* Use .container on direct children of sections for consistent spacing */
+.container {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
+  box-sizing: border-box;
+}
+@media (max-width: 768px) {
+  .container { padding-left: 20px; padding-right: 20px; }
+}
+@media (max-width: 480px) {
+  .container { padding-left: 16px; padding-right: 16px; }
+}
+
 /* ── Responsive horizontal padding helpers ── */
 .resp-pad {
   padding-left: 24px;
@@ -146,28 +169,48 @@ button { font-family: inherit; }
   .resp-pad { padding-left: 16px; padding-right: 16px; }
 }
 
-  /* ── Prevent horizontal scroll on mobile ── */
-  @media (max-width: 768px) {
-    .container,
-    .container-fluid { max-width: 100%; }
-  }
+/* ── Prevent horizontal scroll on mobile ── */
+@media (max-width: 768px) {
+  .container,
+  .container-fluid { max-width: 100%; }
+}
 
-  /* ── Global container — consistent width across all sections ── */
-  /* Matches Navbar (1320px) and Hero (1320px) */
-  .container {
-    max-width: 1320px;
-    margin: 0 auto;
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-  @media (max-width: 768px) {
-    .container { padding-left: 20px; padding-right: 20px; }
-  }
-  @media (max-width: 480px) {
-    .container { padding-left: 16px; padding-right: 16px; }
-  }
+/* ── Global image safety ── */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 
-/* ── Global Arrow Icon Color (matches hero-heading-accent gold) ── */
+/* ── Responsive grid utilities ── */
+.grid-responsive {
+  display: grid;
+  gap: 24px;
+}
+@media (max-width: 1024px) {
+  .grid-responsive { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .grid-responsive { grid-template-columns: 1fr; }
+}
+
+/* ── Responsive text clamping ── */
+.text-responsive-xl {
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+}
+.text-responsive-lg {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+}
+.text-responsive-md {
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+}
+
+/* ── Safe area for fixed headers ── */
+section {
+  position: relative;
+}
+
+/* ── Global Arrow Icon Color (matches hero-heading-accent gold) ─ */
 .hero-btn-arrow,
 .hero-btn svg,
 .srv-arrow,

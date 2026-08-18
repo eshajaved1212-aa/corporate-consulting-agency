@@ -14,7 +14,6 @@ export default function PrivacyPage() {
           <div className="sp-hero-overlay" />
         </div>
         <motion.div className="sp-hero-content" initial={{ opacity: 0, y: 32 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-          <Link to="/" className="sp-back-link">← Back to Home</Link>
           <span className="sp-eyebrow">Legal</span>
           <h1 className="sp-hero-title">Privacy <span className="sp-gold">Policy</span></h1>
           <p className="sp-hero-sub">Last updated: January 1, 2025</p>

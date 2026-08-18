@@ -158,4 +158,4 @@
 .srv-card:hover .srv-card-shine { left: 150%; }
 
 @media (max-width: 1024px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 640px)  { .services-grid { grid-template-columns: 1fr; } .services-inner { padding: 0 20px; } }
+@media (max-width: 640px)  { .services-grid { grid-template-columns: 1fr; } .services-inner { padding: 0 20px; } .srv-orb { display: none; } }

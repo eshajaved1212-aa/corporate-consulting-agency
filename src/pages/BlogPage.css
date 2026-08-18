@@ -115,7 +115,7 @@
 .bp-container {
   max-width: var(--container-width);
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 24px;
 }
 
 /* ── Grid ── */
@@ -306,7 +306,7 @@
 
 /* ── Responsive ── */
 @media (max-width: 1024px) {
-  .bp-container { padding: 0 32px; }
+  .bp-container { padding: 0 24px; }
   .bp-hero-content { padding: 100px 24px 52px; }
   .bp-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
 }

@@ -52,7 +52,6 @@ export default function NewsDetail() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
-          <Link to="/news" className="nd-back-link">← Back to News & Insights</Link>
           {article.category && <span className="nd-category">{article.category}</span>}
           <h1 className="nd-title">{article.title}</h1>
           <div className="nd-meta">

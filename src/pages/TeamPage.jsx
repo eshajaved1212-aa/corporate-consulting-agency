@@ -37,7 +37,6 @@ export default function TeamPage() {
           initial={{ opacity: 0, y: 32 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}>
-          <Link to="/" className="tp-back">&larr; Back to Home</Link>
           <span className="tp-eyebrow">The People Behind It</span>
           <h1 className="tp-hero-title">
             Meet Our <span className="tp-gold">Leadership</span>

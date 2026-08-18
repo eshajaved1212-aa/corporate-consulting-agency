@@ -62,7 +62,6 @@ export default function PortfolioDetail() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
-          <Link to="/portfolio" className="pfd-back">← Back to Portfolio</Link>
           <span className="pfd-category">{entry.category}</span>
           <h1 className="pfd-title">{entry.title}</h1>
           <p className="pfd-client">Client: <strong>{entry.client}</strong></p>

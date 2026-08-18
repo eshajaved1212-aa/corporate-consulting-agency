@@ -70,16 +70,25 @@ export default function BlogPage() {
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
+  }, [activeCategory]);
+
+  useEffect(() => {
+    setLoading(true);
     const params = activeCategory !== 'All' ? { category: activeCategory } : {};
     fetchBlogPosts(params)
-      .then(res => setPosts(res.data))
+      .then(res => {
+        const apiPosts = res.data || [];
+        setPosts(apiPosts.length > 0 ? apiPosts : fallbackPosts);
+      })
       .catch(() => setPosts(fallbackPosts))
       .finally(() => setLoading(false));
   }, [activeCategory]);
 
   const filtered = activeCategory === 'All'
     ? posts
-    : posts.filter(p => p.category === activeCategory);
+    : posts.filter(p => (p.category || '').toLowerCase() === activeCategory.toLowerCase());
+
+  const categories = ['All', ...new Set(posts.map(p => p.category).filter(Boolean))];
 
   return (
     <>
@@ -101,7 +110,6 @@ export default function BlogPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
-          <Link to="/" className="bp-back">← Back to Home</Link>
           <span className="bp-eyebrow">News & Insights</span>
           <h1 className="bp-hero-title">
             Our <span className="bp-gold">Blog</span>

@@ -128,7 +128,7 @@
 .sp-container {
   max-width: var(--container-width);
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 24px;
 }
 
 .sp-header {

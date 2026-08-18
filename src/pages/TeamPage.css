@@ -89,7 +89,7 @@
 /* ── Section ── */
 .tp-section { background: #0F172A; padding: 100px 0; }
 
-.tp-container { max-width: var(--container-width); margin: 0 auto; padding: 0 40px; }
+.tp-container { max-width: var(--container-width); margin: 0 auto; padding: 0 24px; }
 
 .tp-header { text-align: center; margin-bottom: 64px; }
 

@@ -102,7 +102,7 @@
 .cp-container {
   max-width: var(--container-width);
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 24px;
 }
 .cp-header { text-align: center; margin-bottom: 56px; }
 .cp-tag {
@@ -329,7 +329,7 @@
 
 /* ── Responsive ── */
 @media (max-width: 1024px) {
-  .cp-container { padding: 0 32px; }
+  .cp-container { padding: 0 24px; }
   .cp-hero-content { padding: 100px 24px 52px; }
   .cp-perks-grid { grid-template-columns: repeat(2, 1fr); }
   .cp-steps { grid-template-columns: repeat(3, 1fr); }

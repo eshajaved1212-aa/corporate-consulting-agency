@@ -112,7 +112,6 @@ export default function CareersPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
-          <Link to="/" className="cp-back-link">← Back to Home</Link>
           <span className="cp-eyebrow">Join Our Team</span>
           <h1 className="cp-hero-title">
             Build Your Future at <span className="cp-gold">ConsultPro</span>

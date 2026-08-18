@@ -257,4 +257,5 @@
   .team-grid  { grid-template-columns: 1fr; }
   .team-header { margin-bottom: 48px; }
   .team-cta-strip { flex-direction: column; gap: 16px; text-align: center; }
+  .team-orb { display: none; }
 }

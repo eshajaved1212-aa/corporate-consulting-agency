@@ -463,7 +463,7 @@
 /* ── Responsive ── */
 @media (max-width: 1024px) {
   .ct-body { grid-template-columns: 1fr; gap: 44px; }
-  .ct-container { padding: 0 32px; }
+  .ct-container { padding: 0 24px; }
 }
 
 @media (max-width: 640px) {

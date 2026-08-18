@@ -64,15 +64,6 @@ export default function Hero() {
             </h1>
 
             <motion.p
-              className="hero-founder"
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0.55 }}
-            >
-              <span className="hero-founder-label">Founded &amp; Led by</span> <span className="hero-founder-name">Esha Javed</span>
-            </motion.p>
-
-            <motion.p
               className="hero-sub"
               initial={{ opacity: 0, y: 22 }}
               animate={{ opacity: 1, y: 0 }}

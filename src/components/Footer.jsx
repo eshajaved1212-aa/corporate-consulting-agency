@@ -120,13 +120,15 @@ export default function Footer() {
               </div>
             </div>
 
-            <p className="footer-description">
-              We empower businesses worldwide with data-driven strategies,
-              innovative solutions, and unmatched industry expertise to
-              accelerate growth and deliver measurable results.
-            </p>
+             <p className="footer-description">
+               We empower businesses worldwide with data-driven strategies,
+               innovative solutions, and unmatched industry expertise to
+               accelerate growth and deliver measurable results.
+             </p>
 
-            {/* Newsletter Signup */}
+             <p className="footer-founded">Founded &amp; Led by <strong>Esha Javed</strong></p>
+
+             {/* Newsletter Signup */}
             <div className="footer-newsletter">
               <h4 className="footer-heading">Stay Updated</h4>
               <p className="footer-newsletter-text">Get the latest insights and trends delivered to your inbox.</p>

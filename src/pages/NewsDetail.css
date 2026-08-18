@@ -81,7 +81,7 @@
 .nd-container {
   max-width: 800px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 24px;
 }
 .nd-content {
   color: rgba(255,255,255,0.85);
@@ -305,7 +305,7 @@
 
 /* ── Responsive ── */
 @media (max-width: 1024px) {
-  .nd-container { padding: 0 32px; }
+  .nd-container { padding: 0 24px; }
   .nd-lead { font-size: 1.1rem; }
   .nd-section-block h2 { font-size: 1.25rem; margin: 28px 0 10px; }
 }

@@ -105,7 +105,7 @@
 .pfd-container {
   max-width: 900px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 24px;
 }
 .pfd-section-tag {
   display: inline-block;
@@ -285,7 +285,7 @@
 /* ── Responsive ── */
 @media (max-width: 1024px) {
   .pfd-section { padding: 60px 24px; }
-  .pfd-container { padding: 0 32px; }
+  .pfd-container { padding: 0 24px; }
   .pfd-hero-content { padding: 100px 24px 52px; }
   .pfd-testimonial { padding: 32px 24px; }
   .pfd-testimonial blockquote { font-size: 1.1rem; }

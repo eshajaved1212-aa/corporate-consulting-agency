@@ -132,13 +132,6 @@ export default function WhyChooseUsDetail() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
-          <Link to="/" className="wcd-back">
-            <svg viewBox="0 0 20 20" fill="none" width="16" height="16">
-              <path d="M13 4l-6 6 6 6" stroke="currentColor" strokeWidth="2"
-                strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            Back to Home
-          </Link>
           <span className="wcd-eyebrow">Why Choose ConsultPro</span>
           <h1 className="wcd-hero-title">
             The Advantage That<br />

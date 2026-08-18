@@ -683,3 +683,10 @@
   .admin-stats-grid { grid-template-columns: 1fr; }
 }
 
+@media (max-width: 600px) {
+  .admin-sidebar { width: 56px; }
+  .admin-sidebar-brand { padding: 14px 8px; }
+  .admin-nav-btn { padding: 8px; }
+  .admin-main { padding: 16px 12px; }
+}
+
